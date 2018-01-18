@@ -8,16 +8,26 @@ qtCreatorFile = "mainwindow.ui"
  
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
  
+class CardReaderThread(QtCore.QThread):
+    def __init__(self, lineedit):
+        QtCore.QThread.__init__(self)
+        self.lineedit = lineedit
+
+    def run(self):
+        card = sr.readCard()
+        lineedit.setText(card)
+
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-
-        card = sr.readCard()
-        self.username_field.setText(card)
-
         #self.showFullScreen()
+
+        self.threads = []
+        reader = CardReaderThread(self.username_field)
+        self.threads.append(reader)
+        reader.start()
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
