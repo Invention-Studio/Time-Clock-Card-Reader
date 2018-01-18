@@ -21,6 +21,6 @@ if __name__ == "__main__":
     window.show()
 
     card = sr.readCard()
-    print card
+    self.ui.username_field.setText(card)
 
     sys.exit(app.exec_())
