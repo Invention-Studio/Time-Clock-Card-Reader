@@ -1,4 +1,4 @@
-import SerialRead as sr
+from SerialReader import SerialReader
 import sys
 from PyQt4 import QtCore, QtGui, uic
 from PyQt4.QtGui import QHBoxLayout
@@ -14,10 +14,10 @@ class CardReaderThread(QtCore.QThread):
         self.lineedit = lineedit
 
     def run(self):
-        ser = sr.iniSetup()
+        reader = SerialReader("COM6")
         card = ""
         while True:
-          card = sr.readCard(ser)
+          card = reader.readCard()
           print card
           self.lineedit.setText(card)
 
