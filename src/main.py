@@ -18,7 +18,6 @@ class CardReaderThread(QtCore.QThread):
         card = ""
         while True:
           card = reader.readCard()
-          print card
           self.lineedit.setText(card)
 
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
@@ -26,7 +25,7 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
         QtGui.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        #self.showFullScreen()
+        self.showFullScreen()
 
         self.threads = []
         reader = CardReaderThread(self.username_field)
