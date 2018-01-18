@@ -43,7 +43,7 @@
       </property>
       <property name="font">
        <font>
-        <family>Roboto</family>
+        <family>Helvetica</family>
         <pointsize>48</pointsize>
        </font>
       </property>
@@ -81,7 +81,7 @@ border-radius: 10px;</string>
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
-           <family>Roboto</family>
+           <family>Helvetica</family>
            <pointsize>24</pointsize>
           </font>
          </property>
