@@ -15,6 +15,7 @@ class CardReaderThread(QtCore.QThread):
 
     def run(self):
         card = sr.readCard()
+        print card
         self.lineedit.setText(card)
 
 class MyApp(QtGui.QMainWindow, Ui_MainWindow):
