@@ -11,9 +11,9 @@ ser = 0
 def iniSetup():
     global ser
     #change COM number to whatever number is connected
-    comPort = "COM15"
+    comPort = "COM6"
     try:
-        ser = serial.Serial(comPort, 9600)
+        ser = serial.Serial(comPort, 9600, timeout = 1)
     except serial.SerialException:
         print ("404 Error: RFID not found")
         return False
@@ -26,13 +26,16 @@ def iniSetup():
 def readCard():
     global ser
     if(iniSetup()):
-        line = ser.readline().decode('utf-8')[:-1]
-        ser.close()
-        return line
+		line = ser.readline().decode('utf-8')[:-1]
+		return line
 
 """ 
     Test function to read and print the ID.
     Just to make sure that it works
 """
 if __name__ == "__main__":
-    print(readCard())
+    while True:
+		line = readCard()
+		if(line != ""):
+			print(line)
+		ser.close()
