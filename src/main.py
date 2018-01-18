@@ -14,6 +14,7 @@ class CardReaderThread(QtCore.QThread):
         self.lineedit = lineedit
 
     def run(self):
+        sr.iniSetup()
         card = ""
         while True:
           card = sr.readCard()
