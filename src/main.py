@@ -1,5 +1,7 @@
 import sys
 from PyQt4 import QtCore, QtGui, uic
+from PyQt4.QtGui import QHBoxLayout
+from PyQt4.QtCore import Qt
  
 qtCreatorFile = "mainwindow.ui"
  
@@ -10,6 +12,9 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
         QtGui.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+
+        layout = self.horizontalLayout
+        layout.setAlignment(Qt.AlignTop)
  
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
