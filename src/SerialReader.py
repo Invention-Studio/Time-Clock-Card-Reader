@@ -19,3 +19,12 @@ class SerialReader:
 	def readCard(self):
 		if self.ser.isOpen():
 			return self.ser.readline().decode('utf-8')[:-2]
+
+"""
+Main function to demo the Serial Connection
+Test if it is working
+"""
+if __name__ == "__main__":
+	#Change "COM1" to whatever OS specified port you are testing for
+	demo = SerialReader("COM1")
+	demo.readCard()
