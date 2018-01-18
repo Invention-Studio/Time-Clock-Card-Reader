@@ -6,7 +6,7 @@ Class to read card from RFID
 """
 
 class SerialReader:
-	#Initializes serial with specified comPort specified by the user
+	#Initializes serial with user-specified COM Port
 	#in theory should work for all OS, tested with Windows 10
 	
 	def __init__(self, comPort):
