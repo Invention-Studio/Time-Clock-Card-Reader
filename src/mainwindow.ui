@@ -51,7 +51,10 @@
        <string notr="true">color: white;</string>
       </property>
       <property name="text">
-       <string>Humanity</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>resources/humanity_logo.svg</pixmap>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -215,6 +218,9 @@
               <string notr="true">background-color: white;
  border: 1px solid grey;
  border-radius: 5px;</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
              </property>
              <property name="placeholderText">
               <string>Password</string>
