@@ -43,7 +43,7 @@
       </property>
       <property name="font">
        <font>
-        <family>Heiti SC</family>
+        <family>Roboto</family>
         <pointsize>48</pointsize>
        </font>
       </property>
@@ -81,7 +81,7 @@ border-radius: 10px;</string>
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
-           <family>Heiti SC</family>
+           <family>Roboto</family>
            <pointsize>24</pointsize>
           </font>
          </property>
@@ -180,7 +180,9 @@ border-radius: 5px;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: #3190C3; border-radius: 5px;</string>
+            <string notr="true">color: white;
+background-color: #3190C3; 
+border-radius: 5px;</string>
            </property>
            <property name="text">
             <string>Login</string>
