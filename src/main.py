@@ -1,3 +1,4 @@
+import SerialRead as sr
 import sys
 from PyQt4 import QtCore, QtGui, uic
 from PyQt4.QtGui import QHBoxLayout
@@ -18,4 +19,8 @@ if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     window = MyApp()
     window.show()
+
+    card = sr.readCard()
+    print card
+
     sys.exit(app.exec_())
