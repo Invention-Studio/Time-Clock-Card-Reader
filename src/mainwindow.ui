@@ -203,7 +203,7 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>14</pointsize>
+               <pointsize>13</pointsize>
               </font>
              </property>
              <property name="acceptDrops">
@@ -235,7 +235,7 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>14</pointsize>
+               <pointsize>13</pointsize>
               </font>
              </property>
              <property name="styleSheet">
