@@ -13,14 +13,15 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
         QtGui.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+
+        card = sr.readCard()
+        self.username_field.setText(card)
+
         #self.showFullScreen()
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     window = MyApp()
     window.show()
-
-    card = sr.readCard()
-    print card
 
     sys.exit(app.exec_())
