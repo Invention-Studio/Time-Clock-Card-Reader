@@ -23,7 +23,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
         self.threads = []
-        self.startCardReaderThread
+        self.startCardReaderThread()
 
     def killCardReaderThread(self):
         self.cardReaderThread.terminate()
