@@ -10,8 +10,8 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         Ui_AddUserWindow.__init__(self)
         self.setupUi(self)
 
-        uf = UserFactory('users.csv')
-        users = uf.readAll()
+        self.uf = UserFactory('users.csv')
+        users = self.uf.readAll()
 
         for u in users:
             id = u[0]
@@ -27,4 +27,6 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
 
     def cardScanned(self, card):
         index = self.userDropdown.currentIndex()
-        print self.userDropdown.itemData(index).toInt()[0]
+        userid = self.userDropdown.itemData(index).toInt()[0]
+        self.uf.overwrite(userid, card)
+        print (userid, card)
