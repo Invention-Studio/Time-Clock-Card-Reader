@@ -14,11 +14,12 @@ class SerialReader:
 		try:
 			self.ser = serial.Serial(comPort, 9600)
 			self.found = True
-		except serial.SerialException:
+		except serial.SerialException as e:
+			print(e)
 			print("404 Error: RFID not found")
 	
 	def __del__(self):
-		self.ser.close()
+		self.close()
 
 	#Returns the ID associated with the card
 	def readCard(self):
@@ -28,7 +29,9 @@ class SerialReader:
 	#Returns boolean if connection was found
 	def isFound(self):
 		return self.found
-
+		
+	def close(self):
+		self.ser.close()
 """
 Main function to demo the Serial Connection
 Test if it is working
