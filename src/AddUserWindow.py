@@ -29,4 +29,4 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         index = self.userDropdown.currentIndex()
         userid = self.userDropdown.itemData(index).toInt()[0]
         self.uf.overwrite(userid, card)
-        print (userid, card)
+        self.statuslabel.setText("Successfully added " + self.userDropdown.currentText())
