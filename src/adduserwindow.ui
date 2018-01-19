@@ -182,7 +182,6 @@
             </property>
             <property name="styleSheet">
              <string notr="true">QComboBox { border: 1px solid grey; border-radius: 5px; }
-QComboBox::drop-down { border-color:grey; width: 30px; border: 0px; border-radius: 5px; }
 QComboBox::down-arrow { image: url(./resources/down-arrow-grey.svg); width: 30px; height: 30px; }</string>
             </property>
            </widget>
