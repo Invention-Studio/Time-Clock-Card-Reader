@@ -22,6 +22,15 @@ class UserFactory:
 	
 	# finds employee and replaces old buzzID for new buzzID in fileName.csv
 	# returns True if successful
+	
+	def readAll(self):
+		rows = []
+		with open(self.fileName, "rb") as myFile:
+			reader = csv.reader(myFile, delimiter=",",quotechar = "|")
+			for row in reader:
+				rows.append(row)
+		return rows
+	
 	def overwrite(self, empID, buzzID):
 		boo = False
 		rows = []
