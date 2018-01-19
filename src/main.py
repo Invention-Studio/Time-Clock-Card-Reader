@@ -2,7 +2,7 @@ import sys
 from PyQt4 import QtGui
 
 from MainWindow import MainWindow
-from AddUserWindow import AddUserWindow
+from AddUserWindow import AddUserWindow, CardReaderThread
 
 class MyApp(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -27,7 +27,7 @@ class MyApp(QtGui.QMainWindow):
     def exitAddUser(self):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
-        self.mainWindow.cardReaderThread.__init__(self.mainWindow.username_field)
+        self.mainWindow.cardReaderThread = CardReaderThread(self.mainWindow.username_field)
         self.mainWindow.cardReaderThread.start()
 
         
