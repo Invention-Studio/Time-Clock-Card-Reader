@@ -18,6 +18,7 @@ class CardReaderThread(QtCore.QThread):
               self.lineedit.setText(card)
 
     def close(self):
+        print "Closing MainWindow CardReaderThread"
         self.reader.close()
         self.terminate()
 
