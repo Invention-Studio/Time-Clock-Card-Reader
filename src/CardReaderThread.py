@@ -13,3 +13,6 @@ class CardReaderThread(QtCore.QThread):
           if self.reader.isFound():
               card = self.reader.readCard()
               self.parent.cardScanned(card)
+
+    def changeParent(self, parent):
+        self.parent = parent

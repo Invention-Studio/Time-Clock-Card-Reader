@@ -8,3 +8,6 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         MainWindowClass.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+
+    def cardScanned(self, card):
+        print "MainWindow: " + card
