@@ -1,6 +1,7 @@
 import sys
 from PyQt4 import QtGui
 
+from CardReaderThread import CardReaderThread
 from MainWindow import MainWindow
 from AddUserWindow import AddUserWindow, CardReaderThread
 
@@ -15,6 +16,11 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.addWidget(self.mainWindow)
         self.addUserWindow = None
         #self.showFullScreen()
+
+        self.threads = []
+        cardReaderThread = CardReaderThread(self)
+        self.threads.append(cardReaderThread)
+        cardReaderThread.start()
 
     def addUser(self):
         self.mainWindow.killCardReaderThread()
@@ -31,6 +37,9 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.removeWidget(self.addUserWindow)      
         self.mainWindow.startCardReaderThread()
         
+    def cardScanned(card):
+        print card
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     window = MyApp()
