@@ -17,6 +17,7 @@ class CardReaderThread(QtCore.QThread):
 
     def close(self):
         self.reader.close()
+        self.terminate()
 
 class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
     def __init__(self, parent=None):
@@ -30,7 +31,6 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
 
     def killCardReaderThread(self):
         self.cardReaderThread.close()
-        self.cardReaderThread.terminate()
         self.threads.remove(self.cardReaderThread)
         del self.cardReaderThread
         self.cardReaderThread = None
