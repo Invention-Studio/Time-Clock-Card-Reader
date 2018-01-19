@@ -8,6 +8,7 @@ class CardReaderThread(QtCore.QThread):
     def __init__(self):
         QtCore.QThread.__init__(self)
 
+
     def run(self):
         reader = SerialReader("COM6")
         card = ""
@@ -20,6 +21,8 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         AddUserWindowClass.__init__(self)
         Ui_AddUserWindow.__init__(self)
         self.setupUi(self)
+        self.userDropdown.addItem('Kabbabe, Kristian (kakaday22)', 123)
+        self.userDropdown.addItem('Rupert, Nick (nickrupert7)', 789)
 
         self.threads = []
         reader = CardReaderThread()
