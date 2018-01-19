@@ -22,8 +22,16 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         MainWindowClass.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-
         self.threads = []
+        self.startCardReaderThread
+
+    def killCardReaderThread(self):
+        self.cardReaderThread.terminate()
+        self.threads.remove(self.cardReaderThread)
+        self.cardReaderThread = None
+
+    def startCardReaderThread(self):
         self.cardReaderThread = CardReaderThread(self.username_field)
         self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
+
