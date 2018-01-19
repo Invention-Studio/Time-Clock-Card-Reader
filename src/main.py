@@ -1,37 +1,32 @@
-from SerialReader import SerialReader
 import sys
-from PyQt4 import QtCore, QtGui, uic
-from PyQt4.QtGui import QHBoxLayout
-from PyQt4.QtCore import Qt
- 
-qtCreatorFile = "mainwindow.ui"
- 
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
- 
-class CardReaderThread(QtCore.QThread):
-    def __init__(self, lineedit):
-        QtCore.QThread.__init__(self)
-        self.lineedit = lineedit
+from PyQt4 import QtGui
 
-    def run(self):
-        reader = SerialReader("COM6")
-        card = ""
-        while True:
-          card = reader.readCard()
-          self.lineedit.setText(card)
+from MainWindow import MainWindow
+from AddUserWindow import AddUserWindow
 
-class MyApp(QtGui.QMainWindow, Ui_MainWindow):
-    def __init__(self):
-        QtGui.QMainWindow.__init__(self)
-        Ui_MainWindow.__init__(self)
-        self.setupUi(self)
-        self.showFullScreen()
+class MyApp(QtGui.QMainWindow):
+    def __init__(self, parent=None):
+        super(MyApp, self).__init__(parent)
+        self.setStyleSheet("background-color: #3190C3;")
+        self.central_widget = QtGui.QStackedWidget()
+        self.setCentralWidget(self.central_widget)
+        self.mainWindow = MainWindow(self)
+        self.mainWindow.addUserButton.clicked.connect(self.addUser)
+        self.central_widget.addWidget(self.mainWindow)
+        self.addUserWindow = None
+        #self.showFullScreen()
 
-        self.threads = []
-        reader = CardReaderThread(self.username_field)
-        self.threads.append(reader)
-        reader.start()
+    def addUser(self):
+        if self.addUserWindow is None:
+            self.addUserWindow = AddUserWindow(self)
+        self.addUserWindow.backButton.clicked.connect(self.exitAddUser)
+        self.central_widget.addWidget(self.addUserWindow)
+        self.central_widget.setCurrentWidget(self.addUserWindow)
 
+    def exitAddUser(self):
+        self.central_widget.setCurrentWidget(self.mainWindow)
+        self.central_widget.removeWidget(self.addUserWindow)      
+        
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     window = MyApp()
