@@ -17,6 +17,9 @@ class SerialReader:
 		except serial.SerialException:
 			print("404 Error: RFID not found")
 
+  def __del__(self):
+    self.ser.close()
+
 	#Returns the ID associated with the card
 	def readCard(self):
 		if self.ser.isOpen():

@@ -9,12 +9,15 @@ class CardReaderThread(QtCore.QThread):
         QtCore.QThread.__init__(self)
         self.lineedit = lineedit
 
+    def __del__(self):
+        del self.reader
+
     def run(self):
-        reader = SerialReader("COM6")
+        self.reader = SerialReader("COM6")
         card = ""
         while True:
-          if reader.isFound():
-              card = reader.readCard()
+          if self.reader.isFound():
+              card = self.reader.readCard()
               self.lineedit.setText(card)
 
 class MainWindow(MainWindowClass, Ui_MainWindow):
@@ -28,7 +31,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
     def killCardReaderThread(self):
         self.cardReaderThread.terminate()
         self.threads.remove(self.cardReaderThread)
-        self.cardReaderThread = None
+        del self.cardReaderThread
 
     def startCardReaderThread(self):
         self.cardReaderThread = CardReaderThread(self.username_field)
