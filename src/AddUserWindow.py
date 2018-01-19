@@ -16,13 +16,9 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         for u in users:
             id = u[0]
             lastname = u[2]
-            if lastname is None:
-                lastname = ""
-            else:
+            if lastname != "":
                 lastname = lastname + ", "
             firstname = u[1]
-            if firstname is None:
-                firstname = ""
             username = u[3]
             entry = lastname + firstname + " (" + username + ")"
             self.userDropdown.addItem(entry, id)
