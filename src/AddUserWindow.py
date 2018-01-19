@@ -11,5 +11,5 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         self.userDropdown.addItem('Kabbabe, Kristian (kakaday22)', 123)
         self.userDropdown.addItem('Rupert, Nick (nickrupert7)', 789)
 
-    def cardScanned(card):
+    def cardScanned(self, card):
         print "AddUserWindow: " + card
