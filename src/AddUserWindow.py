@@ -12,10 +12,22 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
 
         uf = UserFactory('users.csv')
         users = uf.readAll()
-        print len(users)
 
-        self.userDropdown.addItem('Kabbabe, Kristian (kakaday22)', 123)
-        self.userDropdown.addItem('Rupert, Nick (nickrupert7)', 789)
+        for u in users:
+            id = u[0]
+            lastname = u[2]
+            if lastname is None:
+                lastname = ""
+            else
+                lastname = lastname + ", "
+            firstname = u[1]
+            if firstname is None:
+                firstname = ""
+            username = u[3]
+            entry = lastname + firstname + " (" + username + ")"
+          self.userDropdown.addItem(entry, id)
+
+        
 
     def cardScanned(self, card):
         print "AddUserWindow: " + card
