@@ -29,9 +29,11 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         self.startCardReaderThread()
 
     def killCardReaderThread(self):
+        self.cardReaderThread.close()
         self.cardReaderThread.terminate()
         self.threads.remove(self.cardReaderThread)
-        self.cardReaderThread.close()
+        del self.cardReaderThread
+        self.cardReaderThread = None
 
     def startCardReaderThread(self):
         self.cardReaderThread = CardReaderThread(self.username_field)
