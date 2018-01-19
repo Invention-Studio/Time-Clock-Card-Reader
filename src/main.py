@@ -3,7 +3,7 @@ from PyQt4 import QtGui
 
 from CardReaderThread import CardReaderThread
 from MainWindow import MainWindow
-from AddUserWindow import AddUserWindow, CardReaderThread
+from AddUserWindow import AddUserWindow
 
 class MyApp(QtGui.QMainWindow):
     def __init__(self, parent=None):
