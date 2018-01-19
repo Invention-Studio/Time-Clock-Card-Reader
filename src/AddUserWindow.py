@@ -18,7 +18,7 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
             lastname = u[2]
             if lastname is None:
                 lastname = ""
-            else
+            else:
                 lastname = lastname + ", "
             firstname = u[1]
             if firstname is None:
