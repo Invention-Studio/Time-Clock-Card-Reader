@@ -19,7 +19,7 @@ class MyApp(QtGui.QMainWindow):
 
         self.threads = []
         self.cardReaderThread = CardReaderThread(self.mainWindow)
-        self.threads.append(cardReaderThread)
+        self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
 
     def addUser(self):
