@@ -1,4 +1,4 @@
-from PyQt4 import QtCore, uic
+from PyQt4 import uic
 
 qtcMainWindowFile = "adduserwindow.ui"
 Ui_AddUserWindow, AddUserWindowClass = uic.loadUiType(qtcMainWindowFile)

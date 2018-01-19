@@ -1,4 +1,4 @@
-from PyQt4 import QtCore, uic
+from PyQt4 import uic
 
 qtcMainWindowFile = "mainwindow.ui"
 Ui_MainWindow, MainWindowClass = uic.loadUiType(qtcMainWindowFile)
