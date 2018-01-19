@@ -15,7 +15,7 @@ class MyApp(QtGui.QMainWindow):
         self.mainWindow.addUserButton.clicked.connect(self.addUser)
         self.central_widget.addWidget(self.mainWindow)
         self.addUserWindow = None
-        #self.showFullScreen()
+        self.showFullScreen()
 
         self.threads = []
         self.cardReaderThread = CardReaderThread(self.mainWindow)
