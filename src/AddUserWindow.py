@@ -34,7 +34,7 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         self.cardReaderThread.close()
 
     def startCardReaderThread(self):
-        self.cardReaderThread = CardReaderThread(self.username_field)
+        self.cardReaderThread = CardReaderThread()
         self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
 
