@@ -26,4 +26,4 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         
 
     def cardScanned(self, card):
-        print "AddUserWindow: " + card
+        print self.userDropdown.currentData()
