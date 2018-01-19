@@ -27,7 +27,7 @@ class MyApp(QtGui.QMainWindow):
     def exitAddUser(self):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
-        self.mainWindow.cardReaderThread.__init__()
+        self.mainWindow.cardReaderThread.__init__(self.mainWindow.userNameField)
         self.mainWindow.cardReaderThread.start()
 
         
