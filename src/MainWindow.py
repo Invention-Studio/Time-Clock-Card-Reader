@@ -25,5 +25,5 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
         self.threads = []
         self.cardReaderThread = CardReaderThread(self.username_field)
-        self.threads.append(reader)
+        self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
