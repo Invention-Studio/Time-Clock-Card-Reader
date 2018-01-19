@@ -9,5 +9,5 @@ def getUsers():
     s.get_employees
     print s.get_public_data()
 
-if __name__ == "__main__"
+if __name__ == "__main__":
     getUsers()
