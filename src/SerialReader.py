@@ -31,7 +31,7 @@ class SerialReader:
 		return self.found
 		
 	def close(self):
-    print("Closing SerialReader")
+		print("Closing SerialReader")
 		self.ser.close()
 """
 Main function to demo the Serial Connection
