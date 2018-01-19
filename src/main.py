@@ -23,19 +23,15 @@ class MyApp(QtGui.QMainWindow):
         cardReaderThread.start()
 
     def addUser(self):
-        self.mainWindow.killCardReaderThread()
         if self.addUserWindow is None:
             self.addUserWindow = AddUserWindow(self)
         self.addUserWindow.backButton.clicked.connect(self.exitAddUser)
         self.central_widget.addWidget(self.addUserWindow)
         self.central_widget.setCurrentWidget(self.addUserWindow)
-        self.addUserWindow.startCardReaderThread()
 
     def exitAddUser(self):
-        self.addUserWindow.killCardReaderThread()
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
-        self.mainWindow.startCardReaderThread()
         
     def cardScanned(self, card):
         print card
