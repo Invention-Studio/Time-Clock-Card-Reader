@@ -37,7 +37,7 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.removeWidget(self.addUserWindow)      
         self.mainWindow.startCardReaderThread()
         
-    def cardScanned(card):
+    def cardScanned(self, card):
         print card
 
 if __name__ == "__main__":
