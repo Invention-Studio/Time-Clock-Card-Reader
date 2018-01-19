@@ -17,7 +17,7 @@ class MyApp(QtGui.QMainWindow):
         #self.showFullScreen()
 
     def addUser(self):
-        self.mainWindow.cardReaderThread.quit()
+        self.mainWindow.cardReaderThread.exit()
         if self.addUserWindow is None:
             self.addUserWindow = AddUserWindow(self)
         self.addUserWindow.backButton.clicked.connect(self.exitAddUser)
@@ -27,7 +27,7 @@ class MyApp(QtGui.QMainWindow):
     def exitAddUser(self):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
-#        self.mainWindow.cardReaderThread.start()
+        self.mainWindow.cardReaderThread.start()
         
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
