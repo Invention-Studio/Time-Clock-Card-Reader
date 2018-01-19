@@ -25,7 +25,7 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
                 firstname = ""
             username = u[3]
             entry = lastname + firstname + " (" + username + ")"
-          self.userDropdown.addItem(entry, id)
+            self.userDropdown.addItem(entry, id)
 
         
 
