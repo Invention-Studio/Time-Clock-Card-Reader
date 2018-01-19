@@ -20,4 +20,4 @@ def getUsers():
         uf.write(e['id'], e['firstname'], e['lastname'], e['username'], 0)
 
 if __name__ == "__main__":
-    getUsers()
+	getUsers()

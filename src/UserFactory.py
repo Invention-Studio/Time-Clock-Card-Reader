@@ -15,7 +15,7 @@ class UserFactory:
 		return "Employee ID not found"
 	
 	# writes employee information to fileName.csv
-	def write(self, empID, first, last, userName, buzzID):
+	def write(self, empID = "", first = "", last = "", userName = "", buzzID = ""):
 		with open(self.fileName, "ab") as myFile:
 			writer = csv.writer(myFile)
 			writer.writerow([empID, first, last, userName, buzzID])
