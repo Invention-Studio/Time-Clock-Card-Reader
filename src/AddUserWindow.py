@@ -26,4 +26,5 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
         
 
     def cardScanned(self, card):
-        print self.userDropdown.currentText()
+        index = self.userDropdown.currentIndex()
+        print self.userDropdown.itemData(index)
