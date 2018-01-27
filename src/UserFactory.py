@@ -6,11 +6,11 @@ class UserFactory:
 		self.fileName = fileName
 	
 	# returns employee information from fileName.csv
-	def read(self, empID):
+	def read(self, buzzID):
 		with open(self.fileName, "rb") as myFile:
 			reader = csv.reader(myFile, delimiter=",",quotechar = "|")
 			for row in reader:
-				if row[0] == str(empID):
+				if row[0] == str(buzzID):
 					return row
 		return "Employee ID not found"
 	
@@ -37,9 +37,9 @@ class UserFactory:
 		with open(self.fileName, "r") as myFile:
 			reader = csv.reader(myFile, delimiter=",",quotechar = "|")
 			for row in reader:
-				if row[0] == str(empID):
+				if row[1] == str(empID):
 					boo = True
-					row[4] = str(buzzID)
+					row[0] = str(buzzID)
 				rows.append(row)
 		with open(self.fileName, "wb") as myFile:
 			writer = csv.writer(myFile)
