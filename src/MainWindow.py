@@ -10,7 +10,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        self.uf = UserFactory()
+        self.uf = UserFactory('users.csv')
 
     def cardScanned(self, card):
         print self.uf.read(card)
