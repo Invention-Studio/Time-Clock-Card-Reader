@@ -1,5 +1,6 @@
 from PyQt4 import uic
 from UserFactory import UserFactory
+from InternetFactory import *
 
 qtcMainWindowFile = "mainwindow.ui"
 Ui_MainWindow, MainWindowClass = uic.loadUiType(qtcMainWindowFile)
@@ -14,3 +15,4 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
     def cardScanned(self, card):
         print self.uf.read(card)
+        InternetFactory.getUserStatus(self.uf.read(card))
