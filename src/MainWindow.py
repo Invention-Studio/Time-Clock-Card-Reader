@@ -1,4 +1,5 @@
 from PyQt4 import uic
+from UserFactory import UserFactory
 
 qtcMainWindowFile = "mainwindow.ui"
 Ui_MainWindow, MainWindowClass = uic.loadUiType(qtcMainWindowFile)
@@ -10,4 +11,5 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         self.setupUi(self)
 
     def cardScanned(self, card):
-        print "MainWindow: " + card
+        var uf = UserFactory()
+        print uf.read(card)

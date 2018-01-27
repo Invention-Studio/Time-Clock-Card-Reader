@@ -32,4 +32,5 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
-    adduserwindow.ui
+    adduserwindow.ui \
+    loginwindow.ui

@@ -4,6 +4,7 @@ from PyQt4 import QtGui
 from CardReaderThread import CardReaderThread
 from MainWindow import MainWindow
 from AddUserWindow import AddUserWindow
+from LoginWindow import LoginWindow
 
 class MyApp(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -12,17 +13,20 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget = QtGui.QStackedWidget()
         self.setCentralWidget(self.central_widget)
         self.mainWindow = MainWindow(self)
-        self.mainWindow.addUserButton.clicked.connect(self.addUser)
+        self.mainWindow.addUserButton.clicked.connect(self.startAddUser)
         self.central_widget.addWidget(self.mainWindow)
         self.addUserWindow = None
-        self.showFullScreen()
+        self.loginWindow = None
+#        self.showFullScreen()
 
         self.threads = []
         self.cardReaderThread = CardReaderThread(self.mainWindow)
         self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
 
-    def addUser(self):
+        self.startLogin()
+
+    def startAddUser(self):
         if self.addUserWindow is None:
             self.addUserWindow = AddUserWindow(self)
         self.addUserWindow.backButton.clicked.connect(self.exitAddUser)
@@ -34,6 +38,18 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
         self.cardReaderThread.changeParent(self.mainWindow)
+
+    def startLogin(self):
+        if self.loginWindow is None:
+            self.loginWindow = LoginWindow(self)
+        self.central_widget.addWidget(self.loginWindow)
+        self.central_widget.setCurrentWidget(self.loginWindow)
+
+    def exitLogin(self):
+        self.central_widget.setCurrentWidget(self.mainWindow)
+        self.central_widget.removeWidget(self.loginWindow)
+        self.cardReaderThread.changeParent(self.mainWindow)
+
         
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
