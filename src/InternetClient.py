@@ -20,30 +20,25 @@ def isConnected():
 def getUsers():
     s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
     s.do_login()
-#    s.get_employees()
-    print s.get_raw_resopsne()
-#    uf = UserFactory('users.csv')
-#    for e in s.get_public_data():
-#        firstname = e["firstname"]
-#        lastname = e["lastname"]
-#        print firstname + "  " + lastname
-		#        if firstname is None:
-#            firstname = ""
-#        if lastname is None:
-#            lastname = ""
-#        else:
-#            lastname = lastname + ", "
-#        uf.write(e['id'], e['firstname'], e['lastname'], e['username'], 0)
+    s.get_employees()
+    uf = UserFactory('users.csv')
+    for e in s.get_public_data():
+        firstname = e["firstname"]
+        lastname = e["lastname"]
+        if firstname is None:
+            firstname = ""
+        if lastname is None:
+            lastname = ""
+        else:
+            lastname = lastname + ", "
+        uf.write(e['id'], e['firstname'], e['lastname'], e['username'], 0)
 
 def getUserStatus(userid):
     s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
     s.do_login()
     print userid
- #   s.get_timeclock_status(userid)
-    for e in s.get_public_data():
-        print e
-#        status = e["status"]
+    s.get_timeclock_status(userid)
+    return s.get_public_data()
 
 if __name__ == "__main__":
     print "Connection Status: " + str(isConnected())
-    getUsers()
