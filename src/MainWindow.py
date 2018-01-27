@@ -1,6 +1,6 @@
 from PyQt4 import uic
 from UserFactory import UserFactory
-from InternetFactory import *
+import InternetClient
 
 qtcMainWindowFile = "mainwindow.ui"
 Ui_MainWindow, MainWindowClass = uic.loadUiType(qtcMainWindowFile)
