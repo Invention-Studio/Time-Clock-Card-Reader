@@ -10,6 +10,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
+        self.uf = UserFactory()
+
     def cardScanned(self, card):
-        var uf = UserFactory()
-        print uf.read(card)
+        print self.uf.read(card)
