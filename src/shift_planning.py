@@ -627,10 +627,11 @@ class ShiftPlanning(object):
         }
         self.perform_request(params)
 
-    def get_timeclock_status(self,employee):
+    def get_timeclock_status(self,employee,details):
         params= {
             'module':'timeclock.status',
             'method':'GET',
             'employee':employee
+            'details':details
         }
         self.perform_request(params)
