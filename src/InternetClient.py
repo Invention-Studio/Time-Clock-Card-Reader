@@ -36,7 +36,6 @@ def getUsers():
 def getUserStatus(userid):
     s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
     s.do_login()
-    print userid
     s.get_timeclock_status(userid)
     return s.get_public_data()
 
