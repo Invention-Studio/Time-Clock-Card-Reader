@@ -631,6 +631,6 @@ class ShiftPlanning(object):
         params= {
             'module':'timeclock.status',
             'method':'GET',
-            'employee':str(employee)
+            'employee':employee
         }
         self.perform_request(params)

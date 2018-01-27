@@ -33,10 +33,16 @@ def getUsers():
             lastname = lastname + ", "
         uf.write(e['id'], e['firstname'], e['lastname'], e['username'], 0)
 
+def getUserDetails(userid):
+    s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
+    s.do_login()
+    s.get_employee_details(str(userid))
+    return s.get_public_data()
+
 def getUserStatus(userid):
     s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
     s.do_login()
-    s.get_timeclock_status(userid)
+    s.get_timeclock_status(str(userid))
     return s.get_public_data()
 
 if __name__ == "__main__":
