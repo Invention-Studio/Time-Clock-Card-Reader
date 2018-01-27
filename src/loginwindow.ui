@@ -279,13 +279,13 @@ border-radius: 5px;</string>
               <widget class="QLabel" name="label_5">
                <property name="minimumSize">
                 <size>
-                 <width>100</width>
+                 <width>120</width>
                  <height>20</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>100</width>
+                 <width>16777215</width>
                  <height>20</height>
                 </size>
                </property>

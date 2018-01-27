@@ -24,7 +24,7 @@ class MyApp(QtGui.QMainWindow):
         self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
 
-        self.startLogin()
+#        self.startLogin()
 
     def startAddUser(self):
         if self.addUserWindow is None:
