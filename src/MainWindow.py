@@ -14,5 +14,5 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         self.uf = UserFactory('users.csv')
 
     def cardScanned(self, card):
-        print self.uf.read(card[1])
-        InternetClient.getUserStatus(self.uf.read(card[1]))
+        print self.uf.read(card)[1]
+        InternetClient.getUserStatus(self.uf.read(card))[1]
