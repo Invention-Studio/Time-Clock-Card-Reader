@@ -39,10 +39,10 @@ def getUserDetails(userid):
     s.get_employee_details(str(userid))
     return s.get_public_data()
 
-def getUserStatus(userid):
+def getUserStatus(userid, details):
     s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
     s.do_login()
-    s.get_timeclock_status(str(userid), 1)
+    s.get_timeclock_status(str(userid), details)
     return s.get_public_data()
 
 if __name__ == "__main__":
