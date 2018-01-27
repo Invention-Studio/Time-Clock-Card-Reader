@@ -1,5 +1,6 @@
 from PyQt4 import uic
 from UserFactory import UserFactory
+from threading import Timer
 
 qtcMainWindowFile = "adduserwindow.ui"
 Ui_AddUserWindow, AddUserWindowClass = uic.loadUiType(qtcMainWindowFile)
@@ -22,11 +23,14 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
             username = u[3]
             entry = lastname + firstname + " (" + username + ")"
             self.userDropdown.addItem(entry, id)
-
-        
-
+		
     def cardScanned(self, card):
         index = self.userDropdown.currentIndex()
         userid = self.userDropdown.itemData(index).toInt()[0]
         self.uf.overwrite(userid, card)
         self.statuslabel.setText("Successfully added " + self.userDropdown.currentText())
+        t = Timer(3.0, self.successDissapear)
+        t.start()
+	
+    def successDissapear(self):
+        self.statuslabel.setText("")
