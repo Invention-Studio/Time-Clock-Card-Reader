@@ -15,4 +15,4 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
     def cardScanned(self, card):
         print self.uf.read(card)
-        InternetFactory.getUserStatus(self.uf.read(card))
+        InternetClient.getUserStatus(self.uf.read(card))
