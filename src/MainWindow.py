@@ -1,5 +1,5 @@
 from PyQt4 import uic, QtCore
-from PyQt4.QtCore import QMetaObject, Qt
+from PyQt4.QtCore import Qt, QMetaObject, Q_ARG
 from UserFactory import UserFactory
 import InternetClient
 
