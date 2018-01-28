@@ -16,7 +16,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
     def cardScanned(self, card):
         userid = self.uf.read(card)[1]
-        employeeInfo = InternetClient.getUserDetails(userid)
+        user = InternetClient.getUserDetails(userid)
         status = InternetClient.getUserStatus(userid, 0)
         statusDetails = None
         if status == "in":
