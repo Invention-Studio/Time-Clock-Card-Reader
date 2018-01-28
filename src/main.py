@@ -1,5 +1,5 @@
 import sys
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 
 from CardReaderThread import CardReaderThread
 from MainWindow import MainWindow
@@ -24,6 +24,7 @@ class MyApp(QtGui.QMainWindow):
         self.threads.append(self.cardReaderThread)
         self.cardReaderThread.start()
 
+        print QtCore.QThread.currentThread()
 #        self.startLogin()
 
     def startAddUser(self):
@@ -40,6 +41,7 @@ class MyApp(QtGui.QMainWindow):
         self.cardReaderThread.changeParent(self.mainWindow)
 
     def startLogin(self, realName=None, status=None, lastLogin=None):
+        print QtCore.QThread.currentThread()
         print realName
         print status
         print lastLogin
