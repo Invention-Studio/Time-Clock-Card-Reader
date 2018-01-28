@@ -1,4 +1,4 @@
-from PyQt4 import uic
+from PyQt4 import uic, QtCore
 from UserFactory import UserFactory
 import InternetClient
 
@@ -21,4 +21,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         statusDetails = None
         if status == "in":
             statusDetails = InternetClient.getUserStatus(userid, 1)
-        self.parent.startLogin(user, status, statusDetails)
+
+        QtCore.QMetaObject.invokeMethod(self.parent, "startLogin", Qt.DirectConnection, None, Q_ARG(QtGui.QMainWindow, parent), Q_ARG(QString, user.realname), Q_ARG(QString, status), Q_ARG(int, user.last_visit))
+
+#        self.parent.startLogin(user, status, statusDetails)
