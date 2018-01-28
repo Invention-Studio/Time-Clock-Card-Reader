@@ -41,7 +41,7 @@ class MyApp(QtGui.QMainWindow):
         self.cardReaderThread.changeParent(self.mainWindow)
 
     @QtCore.pyqtSlot(QString, QString, QString)
-    def startLogin(self):
+    def startLogin(self, realName, status, lastLogin):
         print QtCore.QThread.currentThread()
         print realName
         print status

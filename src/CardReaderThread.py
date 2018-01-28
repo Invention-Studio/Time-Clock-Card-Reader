@@ -12,7 +12,6 @@ class CardReaderThread(QtCore.QThread):
         while True:
           if self.reader.isFound():
               card = self.reader.readCard()
-#              QMetaObject.invokeMethod(self.parent, "cardScanned", Qt.DirectConnection, Q_ARG(QString, card))
               self.parent.cardScanned(card)
 
     def changeParent(self, parent):
