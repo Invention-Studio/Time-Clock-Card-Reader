@@ -17,7 +17,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
-         print QtCore.QThread.currentThread()
+        print QtCore.QThread.currentThread()
 #        userid = self.uf.read(card)[1]
 #        user = InternetClient.getUserDetails(userid)
 #        status = InternetClient.getUserStatus(userid, 0)
