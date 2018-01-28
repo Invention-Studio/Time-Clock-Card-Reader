@@ -1,5 +1,6 @@
 from SerialReader import SerialReader
 from PyQt4 import QtCore
+from PyQt4.QtCore import Qt, QMetaObject, Q_ARG, QString
 
 class CardReaderThread(QtCore.QThread):
     def __init__(self, parent=None):

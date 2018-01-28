@@ -1,5 +1,5 @@
-from PyQt4 import uic, QtCore, QtGui
-from PyQt4.QtCore import Qt, QMetaObject, Q_ARG, QString
+from PyQt4 import uic, QtCore
+from PyQt4.QtCore import QString
 from UserFactory import UserFactory
 import InternetClient
 
@@ -15,6 +15,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
         self.uf = UserFactory('users.csv')
 
+    @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
         userid = self.uf.read(card)[1]
         user = InternetClient.getUserDetails(userid)
@@ -23,6 +24,4 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         if status == "in":
             statusDetails = InternetClient.getUserStatus(userid, 1)
 
-        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.DirectConnection, Q_ARG(QString, user["realname"]), Q_ARG(QString, status), Q_ARG(QString, user["last_visit"]))
-
-#        self.parent.startLogin(user, status, statusDetails)
+        self.parent.startLogin(user["realname"], status, user["last_visit"])

@@ -1,4 +1,5 @@
-from PyQt4 import uic
+from PyQt4 import uic, QtCore
+from PyQt4.QtCore import QString
 
 qtcLoginWindowFile = "loginwindow.ui"
 Ui_LoginWindow, LoginWindowClass = uic.loadUiType(qtcLoginWindowFile)
@@ -17,5 +18,6 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
     def logout(self):
         self.parent.exitLogin()
 
+    @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
         pass
