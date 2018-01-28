@@ -11,12 +11,14 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         MainWindowClass.__init__(self)
         Ui_MainWindow.__init__(self)
         self.parent = parent
+        self.something = "testing"
         self.setupUi(self)
 
         self.uf = UserFactory('users.csv')
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
+        print self.something
         userid = self.uf.read(card)[1]
         user = InternetClient.getUserDetails(userid)
         status = InternetClient.getUserStatus(userid, 0)
