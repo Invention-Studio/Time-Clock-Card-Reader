@@ -39,9 +39,9 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.removeWidget(self.addUserWindow)      
         self.cardReaderThread.changeParent(self.mainWindow)
 
-    def startLogin(self, user=None, status=None, statusDetails=None):
+    def startLogin(self, realName=None, status=None, lastLogin=None):
         if self.loginWindow is None:
-            self.loginWindow = LoginWindow(self, user, status, statusDetails)
+            self.loginWindow = LoginWindow(self, realName, status, lastLogin)
         self.cardReaderThread.changeParent(self.loginWindow)
         self.central_widget.addWidget(self.loginWindow)
         self.central_widget.setCurrentWidget(self.loginWindow)
