@@ -17,8 +17,7 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         userid = self.uf.read(card)[1]
         employeeInfo = InternetClient.getUserDetails(userid)
         status = InternetClient.getUserStatus(userid, 0)
-        print employeeInfo
-        print status
+        statusDetails = None
         if status == "in":
-            status = InternetClient.getUserStatus(userid, 1)
-            print status
+            statusDetails = InternetClient.getUserStatus(userid, 1)
+        self.parent.startLogin(user, status, statusDetails)
