@@ -25,7 +25,6 @@ class AddUserWindow(AddUserWindowClass, Ui_AddUserWindow):
             entry = lastname + firstname + " (" + username + ")"
             self.userDropdown.addItem(entry, id)
 		
-    @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
         index = self.userDropdown.currentIndex()
         userid = self.userDropdown.itemData(index).toInt()[0]
