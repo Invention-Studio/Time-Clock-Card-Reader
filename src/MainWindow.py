@@ -19,3 +19,6 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         status = InternetClient.getUserStatus(userid, 0)
         print employeeInfo
         print status
+        if status == "in":
+            status = InternetClient.getUserStatus(userid, 1)
+            print status
