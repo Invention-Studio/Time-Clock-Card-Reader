@@ -1,4 +1,4 @@
-from PyQt4 import uic, QtCore
+from PyQt4 import uic, QtCore, Qt
 from UserFactory import UserFactory
 import InternetClient
 
