@@ -26,4 +26,4 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
 
 #        self.parent.startLogin(user["realname"], status, user["last_visit"])
 #        self.parent.startLogin(None, None, None)
-        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.DirectConnection)
+        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.QueuedConnection)
