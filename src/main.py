@@ -1,6 +1,6 @@
 import sys
 from PyQt4 import QtGui, QtCore
-
+from PyQt4.QtCore import QString
 from CardReaderThread import CardReaderThread
 from MainWindow import MainWindow
 from AddUserWindow import AddUserWindow
@@ -40,12 +40,12 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.removeWidget(self.addUserWindow)      
         self.cardReaderThread.changeParent(self.mainWindow)
 
-    @QtCore.pyqtSlot()
+    @QtCore.pyqtSlot(QString, QString, QString)
     def startLogin(self):
         print QtCore.QThread.currentThread()
-#        print realName
-#        print status
-#        print lastLogin
+        print realName
+        print status
+        print lastLogin
 #        if self.loginWindow is None:
 #            self.loginWindow = LoginWindow(self, realName, status, lastLogin)
 #        self.cardReaderThread.changeParent(self.loginWindow)

@@ -16,14 +16,11 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         self.uf = UserFactory('users.csv')
 
     def cardScanned(self, card):
-        print QtCore.QThread.currentThread()
-#        userid = self.uf.read(card)[1]
-#        user = InternetClient.getUserDetails(userid)
-#        status = InternetClient.getUserStatus(userid, 0)
-#        statusDetails = None
-#        if status == "in":
-#            statusDetails = InternetClient.getUserStatus(userid, 1)
+        userid = self.uf.read(card)[1]
+        user = InternetClient.getUserDetails(userid)
+        status = InternetClient.getUserStatus(userid, 0)
+        statusDetails = None
+        if status == "in":
+            statusDetails = InternetClient.getUserStatus(userid, 1)
 
-#        self.parent.startLogin(user["realname"], status, user["last_visit"])
-#        self.parent.startLogin(None, None, None)
-        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.QueuedConnection)
+        self.parent.startLogin(user["realname"], status, user["last_visit"])
