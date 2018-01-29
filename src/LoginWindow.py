@@ -21,9 +21,11 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         if status == "in":
             self.clockButton.setText("Clock Out and Logout")
             self.clockButton.clicked.connect(self.clockout)
+            self.clockButton.resize(200, 40)
         else:
             self.clockButton.setText("Clock In")
             self.clockButton.clicked.connect(self.clockin)
+            self.clockButton.resize(100, 40)
 
 
     def logout(self):
@@ -33,11 +35,13 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         print "Clocking in " + str(self.id)
         self.clockButton.setText("Clock Out and Logout")
         self.clockButton.clicked.connect(self.clockout)     
+        self.clockButton.resize(200, 40)
 
     def clockout(self):
         print "Clocking out " + str(self.id)
         self.clockButton.setText("Clock In")
         self.clockButton.clicked.connect(self.clockin)
+        self.clockButton.resize(100, 40)
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
