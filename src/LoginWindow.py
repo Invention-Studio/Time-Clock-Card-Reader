@@ -1,5 +1,6 @@
 from PyQt4 import uic, QtCore
 from PyQt4.QtCore import QString
+import InternetClient
 
 qtcLoginWindowFile = "loginwindow.ui"
 Ui_LoginWindow, LoginWindowClass = uic.loadUiType(qtcLoginWindowFile)
@@ -18,7 +19,7 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
 
         self.nameLabel.setText("Hello, " + realName)
         if status == "in":
-            self.clockButton.setText("Clock Out")
+            self.clockButton.setText("Clock Out and Logout")
             self.clockButton.clicked.connect(self.clockout)
         else:
             self.clockButton.setText("Clock In")
@@ -30,9 +31,13 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
 
     def clockin(self):
         print "Clocking in " + str(self.id)
+        self.clockButton.setText("Clock Out and Logout")
+        self.clockButton.clicked.connect(self.clockout)     
 
     def clockout(self):
         print "Clocking out " + str(self.id)
+        self.clockButton.setText("Clock In")
+        self.clockButton.clicked.connect(self.clockin)
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):

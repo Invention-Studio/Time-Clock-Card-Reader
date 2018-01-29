@@ -45,5 +45,16 @@ def getUserStatus(userid, details):
     s.get_timeclock_status(str(userid), details)
     return s.get_public_data()
 
+def clockInUser(userid):
+    s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
+    s.do_login()
+    s.timeclock_clockin(str(userid))
+    
+def clockOutUser(userid):
+    s = shift_planning.ShiftPlanning(creds.HUMANITY_KEY, creds.HUMANITY_LOGIN, creds.HUMANITY_PASSWORD)
+    s.do_login()
+    s.timeclock_clockout(str(userid))
+
+
 if __name__ == "__main__":
     print "Connection Status: " + str(isConnected())
