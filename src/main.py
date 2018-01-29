@@ -44,11 +44,11 @@ class MyApp(QtGui.QMainWindow):
         print realName
         print status
         print lastLogin
-#        if self.loginWindow is None:
-#            self.loginWindow = LoginWindow(self, realName, status, lastLogin)
-#        self.cardReaderThread.changeParent(self.loginWindow)
-#        self.central_widget.addWidget(self.loginWindow)
-#        self.central_widget.setCurrentWidget(self.loginWindow)
+        if self.loginWindow is None:
+            self.loginWindow = LoginWindow(self, realName, status, lastLogin)
+        self.cardReaderThread.changeParent(self.loginWindow)
+        self.central_widget.addWidget(self.loginWindow)
+        self.central_widget.setCurrentWidget(self.loginWindow)
 
     def exitLogin(self):
         self.central_widget.setCurrentWidget(self.mainWindow)
