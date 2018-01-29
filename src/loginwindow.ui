@@ -111,7 +111,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="name_label">
+         <widget class="QLabel" name="nameLabel">
           <property name="font">
            <font>
             <family>Helvetica</family>
@@ -161,7 +161,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="clock_button">
+           <widget class="QPushButton" name="clockButton">
             <property name="minimumSize">
              <size>
               <width>100</width>
@@ -316,7 +316,7 @@ border-radius: 5px;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="last_clock_in_label">
+              <widget class="QLabel" name="timeLabel">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
