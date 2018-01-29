@@ -16,11 +16,14 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         self.uf = UserFactory('users.csv')
 
     def cardScanned(self, card):
+        self.statusLabel.setText("Loading ...")
+
         userid = self.uf.read(card)[1]
         user = InternetClient.getUserDetails(userid)
         status = InternetClient.getUserStatus(userid, 0)
         statusDetails = None
         if status == "in":
             statusDetails = InternetClient.getUserStatus(userid, 1)
-
         QMetaObject.invokeMethod(self.parent, "startLogin", Qt.QueuedConnection, Q_ARG(QString, user["realname"]), Q_ARG(QString, status), Q_ARG(QString, user["last_visit"]))
+
+        self.statusLabel.setText("")
