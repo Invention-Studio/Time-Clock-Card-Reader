@@ -41,9 +41,6 @@ class MyApp(QtGui.QMainWindow):
 
     @QtCore.pyqtSlot(QString, QString, QString)
     def startLogin(self, realName, status, lastLogin):
-        print realName
-        print status
-        print lastLogin
         if self.loginWindow is None:
             self.loginWindow = LoginWindow(self, realName, status, lastLogin)
         self.loginWindow.logoutButton.clicked.connect(self.exitLogin)

@@ -11,15 +11,11 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         self.parent = parent
         self.setupUi(self)
 
-        self.nameLabel.text = "Hello, " + realName
+        self.nameLabel.setText("Hello, " + realName)
         if status == "in":
             self.clockButton.setText("Clock Out")
         else:
             self.clockButton.setText("Clock In")
-
-        print realName
-        print status
-        print lastClockIn
 
     def logout(self):
         self.parent.exitLogin()
