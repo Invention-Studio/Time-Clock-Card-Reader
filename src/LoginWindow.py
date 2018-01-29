@@ -29,10 +29,10 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         self.parent.exitLogin()
 
     def clockin(self):
-        print "Clocking in " + self.id
+        print "Clocking in " + str(self.id)
 
     def clockout(self):
-        print "Clocking out " + self.id
+        print "Clocking out " + str(self.id)
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
