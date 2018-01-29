@@ -12,7 +12,7 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         self.setupUi(self)
 
         self.nameLabel.text = "Hello, " + realName
-        if status == in:
+        if status == "in":
             self.clockButton.text = "Clock Out"
         else:
             self.clockButton.text = "Clock In"
