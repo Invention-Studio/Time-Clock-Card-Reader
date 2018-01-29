@@ -635,3 +635,17 @@ class ShiftPlanning(object):
             'details':details
         }
         self.perform_request(params)
+
+    def timeclock_clockin(self,employee):
+        params= {
+            'module':'timeclock.clockin',
+            'method':'GET',
+            'employee':employee
+        }
+
+    def timeclock_clockout(self,employee):
+        params= {
+            'module':'timeclock.clockout',
+            'method':'GET',
+            'employee':employee
+        }
