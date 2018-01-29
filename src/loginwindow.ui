@@ -414,7 +414,7 @@ border-radius: 5px;</string>
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="logout_button">
+           <widget class="QPushButton" name="logoutButton">
             <property name="minimumSize">
              <size>
               <width>100</width>

@@ -46,6 +46,7 @@ class MyApp(QtGui.QMainWindow):
         print lastLogin
         if self.loginWindow is None:
             self.loginWindow = LoginWindow(self, realName, status, lastLogin)
+        self.loginWindow.logoutButton.clicked.connect(self.exitLogin)
         self.cardReaderThread.changeParent(self.loginWindow)
         self.central_widget.addWidget(self.loginWindow)
         self.central_widget.setCurrentWidget(self.loginWindow)
