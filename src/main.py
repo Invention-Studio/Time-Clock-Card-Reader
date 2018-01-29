@@ -27,8 +27,7 @@ class MyApp(QtGui.QMainWindow):
 #        self.startLogin()
 
     def startAddUser(self):
-        if self.addUserWindow is None:
-            self.addUserWindow = AddUserWindow(self)
+        self.addUserWindow = AddUserWindow(self)
         self.addUserWindow.backButton.clicked.connect(self.exitAddUser)
         self.cardReaderThread.changeParent(self.addUserWindow)
         self.central_widget.addWidget(self.addUserWindow)
@@ -38,11 +37,11 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.addUserWindow)      
         self.cardReaderThread.changeParent(self.mainWindow)
+        self.addUserWindow = None
 
     @QtCore.pyqtSlot(QString, QString, QString)
     def startLogin(self, realName, status, lastLogin):
-        if self.loginWindow is None:
-            self.loginWindow = LoginWindow(self, realName, status, lastLogin)
+        self.loginWindow = LoginWindow(self, realName, status, lastLogin)
         self.loginWindow.logoutButton.clicked.connect(self.exitLogin)
         self.cardReaderThread.changeParent(self.loginWindow)
         self.central_widget.addWidget(self.loginWindow)
@@ -52,7 +51,7 @@ class MyApp(QtGui.QMainWindow):
         self.central_widget.setCurrentWidget(self.mainWindow)
         self.central_widget.removeWidget(self.loginWindow)
         self.cardReaderThread.changeParent(self.mainWindow)
-
+        self.loginWindow = None
         
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
