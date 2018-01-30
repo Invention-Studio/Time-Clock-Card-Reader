@@ -39,7 +39,7 @@ class MyApp(QtGui.QMainWindow):
         self.cardReaderThread.changeParent(self.mainWindow)
         self.addUserWindow = None
 
-    @QtCore.pyqtSlot(int, QString, QString, QString)
+    @QtCore.pyqtSlot(QString, QString, QString, QString)
     def startLogin(self, id, realName, status, lastLogin):
         self.loginWindow = LoginWindow(self, id, realName, status, lastLogin)
         self.loginWindow.logoutButton.clicked.connect(self.exitLogin)

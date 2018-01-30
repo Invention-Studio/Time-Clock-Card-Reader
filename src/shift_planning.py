@@ -112,7 +112,7 @@ class ShiftPlanning(object):
         
         return (None,"User hasn't been authenticated")
     
-    def get_raw_resopsne(self):
+    def get_raw_response(self):
         if self.response:
             return self.response
         return (None,"No raw response available")
@@ -636,16 +636,29 @@ class ShiftPlanning(object):
         }
         self.perform_request(params)
 
-    def timeclock_clockin(self,employee):
+    def timeclock_terminals(self):
         params= {
-            'module':'timeclock.clockin',
-            'method':'GET',
-            'employee':employee
+            'module':'timeclock.terminals',
+			'method':'GET'
         }
+        self.perform_request(params)
+		
+    def terminal_clockin(self,terminal,computerid,id):
+        params= {
+            'module':'terminal.clockin',
+            'method':'GET',
+            'terminal_key':terminal,
+            'computer_id':computerid,
+            'id':id
+        }
+        self.perform_request(params)
 
-    def timeclock_clockout(self,employee):
+    def terminal_clockout(self,terminal,computerid,id):
         params= {
-            'module':'timeclock.clockout',
+            'module':'terminal.clockout',
             'method':'GET',
-            'employee':employee
+            'terminal_key':terminal,
+			'computer_id':computerid,
+            'id':id
         }
+        self.perform_request(params)

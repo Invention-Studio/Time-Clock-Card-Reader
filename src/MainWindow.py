@@ -24,6 +24,6 @@ class MainWindow(MainWindowClass, Ui_MainWindow):
         statusDetails = None
         if status == "in":
             statusDetails = InternetClient.getUserStatus(userid, 1)
-        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.QueuedConnection, Q_ARG(int, userid), Q_ARG(QString, user["realname"]), Q_ARG(QString, status), Q_ARG(QString, user["last_visit"]))
+        QMetaObject.invokeMethod(self.parent, "startLogin", Qt.QueuedConnection, Q_ARG(QString, userid), Q_ARG(QString, user["realname"]), Q_ARG(QString, status), Q_ARG(QString, user["last_visit"]))
 
         self.statusLabel.setText("")
