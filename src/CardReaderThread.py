@@ -7,7 +7,7 @@ class CardReaderThread(QtCore.QThread):
         self.parent = parent
 
     def run(self):
-        self.reader = SerialReader("COM6")
+        self.reader = SerialReader("COM5")
         card = ""
         while True:
           if self.reader.isFound():
