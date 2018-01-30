@@ -36,12 +36,14 @@ class LoginWindow(LoginWindowClass, Ui_LoginWindow):
         self.clockButton.setText("Clock Out and Logout")
         self.clockButton.clicked.connect(self.clockout)     
         self.clockButton.setFixedWidth(250)
+        InternetClient.clockInUser(self.id)
 
     def clockout(self):
         print "Clocking out " + str(self.id)
         self.clockButton.setText("Clock In")
         self.clockButton.clicked.connect(self.clockin)
         self.clockButton.setFixedWidth(100)
+        InternetClient.clockOutUser(self.id)
 
     @QtCore.pyqtSlot(QString)
     def cardScanned(self, card):
